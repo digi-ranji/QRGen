@@ -17,15 +17,15 @@ ResultSet resultSetX =null;
 Connection connectionX =null; 
 		try
 		{ 
-		 connectionX = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+		 //connectionX = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 		
 			//cstmX = connectionX.prepareCall ("{call iKonnet2018.ik19_check_prereg(?)}");
-			cstmX = connectionX.prepareCall ("{call iKonnet2018.psjh_check_prereg(?)}");
-			cstmX.setString("pemail", qrText);
-			resultSetX = cstmX.executeQuery();
-			if(resultSetX.next())
+			//cstmX = connectionX.prepareCall ("{call iKonnet2018.psjh_check_prereg(?)}");
+			//cstmX.setString("pemail", qrText);
+			//resultSetX = cstmX.executeQuery();
+			if(true)
 			{
-				qrText= qrText +"#"+ resultSetX.getString("p_team")+ "=" + resultSetX.getString("p_name");
+				//qrText= qrText +"#"+ resultSetX.getString("p_team")+ "=" + resultSetX.getString("p_name");
 				String qrtextEN  	= Base64.getEncoder().encodeToString(qrText.getBytes()); 
 
 				  ByteArrayOutputStream outX = QRCode.from(qrtextEN).to(ImageType.PNG).withSize(300, 300).stream();
